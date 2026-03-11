@@ -24,7 +24,7 @@ while True:
     
     parms['q'] = address
     url = basic_domain + urllib.parse.urlencode(parms)
-    # print(url)
+    # print(f'API URL: {url}')
 
     fetch_data_b = urllib.request.urlopen(url, context=ctx)
     fetch_data_s = fetch_data_b.read().decode()
@@ -39,7 +39,7 @@ while True:
     # print(json.dumps(fetch_data_d, indent=4))
 
     if fetch_data_d == None or 'features' not in fetch_data_d:
-        print('downloading error')
+        print('Error: Unable to retrieve data from API')
         quit()
     
     features_lst = fetch_data_d['features']
@@ -51,6 +51,5 @@ while True:
     lat = features_lst[0]['properties']['lat']
     country = features_lst[0]['properties']['country']
     state = features_lst[0]['properties']['state']
-    print(f'this is lon {lon}')
-    print(f'this is lon {lat}')
-    print(f'location {country}, {state}')
+    print(f"Longitude: {lon}\nlatitude {lat}")
+    print(f'Location: {state}, {country}')
