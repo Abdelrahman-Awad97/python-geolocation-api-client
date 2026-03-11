@@ -10,6 +10,8 @@ ctx.verify_mode = ssl.CERT_NONE
 basic_domain = 'https://py4e-data.dr-chuck.net/opengeo?'
 
 while True:
+    # you can type this address: Gebäude 78 – Besucherempfang
+    # or any suitable address you want
     address = input('Type the location here: ').strip()
     
     if len(address) < 1:
